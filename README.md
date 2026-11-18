@@ -6,14 +6,14 @@ A Jekyll academic website based on Academic Pages. The public pages use a custom
 
 - `_pages/about.md`: biography and recent highlights.
 - `_data/profile.yml`: contact information, education, research interests, and service.
-- `_data/publications.yml`: the shared bibliography used on the homepage, publications page, and CV.
+- `_data/publications.yml`: the shared bibliography used on the homepage and publications page.
 - `_data/experience.yml`, `_data/teaching.yml`, `_data/talks.yml`: professional and academic activities.
 - `_data/navigation.yml`: main navigation.
 - `_layouts/academic.html` and `assets/css/academic.css`: layout and visual styles.
 
 For a publication, use `status: published`, `preprint`, or `preparation`. Set `selected: true` and add a short `summary` to feature it on the homepage. Keep author order consistent with the current paper. `links` can contain paper, code, and other verified resources.
 
-The CV is generated from the same data and includes a **Print / Save as PDF** button. The sidebar uses a typographic monogram until a personal photograph is supplied. Template posts, sample publications, sample PDFs, and unused demo pages are excluded from the build.
+The sidebar uses a typographic monogram until a personal photograph is supplied. Template posts, sample publications, sample PDFs, and unused demo pages are excluded from the build.
 
 ## Preview and build
 

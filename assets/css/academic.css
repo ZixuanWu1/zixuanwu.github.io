@@ -504,49 +504,6 @@ nav a[aria-current=page] {
   color:inherit;
 }
 
-.print-button {
-  font:inherit;
-  font-size:12px;
-  background:transparent;
-  color:var(--accent);
-  padding:9px 14px;
-  border:1px solid var(--line);
-  cursor:pointer;
-}
-
-.print-button:hover {
-  border-color:var(--accent);
-}
-
-.cv-contact {
-  font-size:13px;
-}
-
-.cv-section {
-  break-inside:auto;
-}
-
-.cv-section h2 {
-  border-bottom:1px solid var(--line);
-  padding-bottom:10px;
-}
-
-.cv-section .publication {
-  padding:15px 0;
-}
-
-.cv-section .publication h3 {
-  font-size:14px;
-}
-
-.cv-section .publication-meta {
-  margin-bottom:5px;
-}
-
-.cv-section .record {
-  padding:14px 0;
-}
-
 @media(min-width:1450px) {
   .site-grid {
     gap:90px;
@@ -710,7 +667,7 @@ nav a[aria-current=page] {
     color:black;
     font-size:10pt;
   }
-  .site-header,.profile,.site-footer,.skip-link,.print-button,.section-nav {
+  .site-header,.profile,.site-footer,.skip-link,.section-nav {
     display:none;
   }
   .site-grid {
@@ -741,12 +698,6 @@ nav a[aria-current=page] {
   }
   .paper-links {
     display:none;
-  }
-  .cv-section .publication {
-    padding:9pt 0;
-  }
-  .cv-section .publication h3 {
-    font-size:10pt;
   }
   .authors,.venue,.record .muted {
     font-size:9pt;
