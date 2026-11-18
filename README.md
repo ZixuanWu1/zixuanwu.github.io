@@ -42,16 +42,17 @@ bundle exec jekyll build
 
 ## GitHub Pages configuration
 
-The repository remote is `ZixuanWu1/zixuanwu.github.io`, so `_config.yml` is configured as a **project site**:
+The repository remote is `ZixuanWu1/zixuanwu1.github.io`, so `_config.yml` is configured as a **user site** at the account's root URL:
 
 ```yaml
 url: https://zixuanwu1.github.io
-baseurl: /zixuanwu.github.io
+baseurl: ""
+repository: ZixuanWu1/zixuanwu1.github.io
 ```
 
-GitHub Pages is enabled using **Deploy from a branch**, with `master` and `/ (root)` selected. Push changes to `master` to update `https://zixuanwu1.github.io/zixuanwu.github.io/`.
+GitHub Pages is enabled using **Deploy from a branch**, with `master` and `/ (root)` selected. Push changes to `master` to update `https://zixuanwu1.github.io/`.
 
-If the repository is renamed to `ZixuanWu1.github.io`, set `baseurl: ''`. For a custom domain, update `url` and `baseurl` to match. Internal links and legacy redirects use Jekyll's URL filters to respect that configuration.
+For a custom domain, update `url` and `baseurl` to match. Internal links and legacy redirects use Jekyll's URL filters to respect that configuration.
 
 ## Content sources
 
