@@ -4,7 +4,7 @@ title: Publications
 permalink: /publications/
 ---
 <p>My work spans causal inference, high-dimensional statistics, uncertainty quantification, and Markov chain Monte Carlo. A citation index is available on <a href="{{ site.data.profile.scholar | escape }}">Google Scholar</a>.</p>
-<p><a href="#published">Published articles</a> | <a href="#preprints">Preprints</a> | <a href="#in-preparation">In preparation</a></p>
+<p><a href="#published">Published articles</a> | <a href="#preprints">Preprints</a></p>
 <h2 id="published">Published articles</h2>
 {% assign published = site.data.publications | where: 'status', 'published' %}
 {% for paper in published %}{% include publication-entry.html paper=paper list=true %}{% endfor %}
@@ -12,6 +12,3 @@ permalink: /publications/
 <p><small>* Equal contribution. Years refer to the first preprint posting.</small></p>
 {% assign preprints = site.data.publications | where: 'status', 'preprint' %}
 {% for paper in preprints %}{% include publication-entry.html paper=paper list=true %}{% endfor %}
-<h2 id="in-preparation">Manuscripts in preparation</h2>
-{% assign preparation = site.data.publications | where: 'status', 'preparation' %}
-{% for paper in preparation %}{% include publication-entry.html paper=paper list=true %}{% endfor %}

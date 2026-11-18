@@ -12,9 +12,9 @@ A Jekyll academic website using the original Academic Pages default theme, layou
 - `_config.yml`: site identity and sidebar information in `author`.
 - `_layouts/single.html`, `_layouts/archive.html`, and `assets/css/main.scss`: the original Academic Pages layouts and theme styles.
 
-For a publication, use `status: published`, `preprint`, or `preparation`. Set `selected: true` and add a short `summary` to feature it on the homepage. Keep author order consistent with the current paper. `links` can contain paper, code, and other verified resources.
+For a publication, use `status: published`, `preprint`, or `preparation`. Only published articles and preprints are displayed on the publications page. Set `selected: true` and add a short `summary` to feature it on the homepage. Keep author order consistent with the current paper. `links` can contain paper, code, and other verified resources.
 
-The sidebar uses the template's neutral placeholder avatar until a personal photograph is supplied. Personal content is kept in the page and data files, and rendered with the template's native typography and publication-list styles. Template posts, sample publications, sample PDFs, and unused demo pages are excluded from the build. The CV page and its navigation links remain removed.
+The sidebar uses the template's neutral placeholder avatar until a personal photograph is supplied. Personal content is kept in the page and data files, and rendered with the template's native typography and publication-list styles. Template posts, sample publications, sample PDFs, and unused demo pages are excluded from the build. The CV and Experience pages and their navigation links remain removed.
 
 ## Preview and build
 
