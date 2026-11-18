@@ -1,12 +1,12 @@
 ---
-layout: archive
-title: "Teaching"
+layout: academic
+title: Teaching and service
 permalink: /teaching/
-author_profile: true
+eyebrow: Academic activities
 ---
-
-{% include base_path %}
-
-{% for post in site.teaching reversed %}
-  {% include archive-single.html %}
-{% endfor %}
+<p class="page-intro">Teaching assistant in the Department of Statistics at the University of Chicago, supporting master's and doctoral courses.</p>
+<h2>Teaching assistantships</h2>
+{% include teaching-list.html %}
+<h2>Peer review</h2>
+<p>I have served as a reviewer for the following journals and conference:</p>
+<ul>{% for venue in site.data.profile.service %}<li>{{ venue }}</li>{% endfor %}</ul>

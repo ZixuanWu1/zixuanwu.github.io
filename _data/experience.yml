@@ -1,0 +1,15 @@
+- organization: Optiver
+  role: Quantitative Research Intern
+  dates: June - August 2026
+  location: Austin, Texas
+  details:
+    - Researched Delta One high-frequency trading strategies, using market data to formulate and evaluate hypotheses for systematic trading.
+    - Developed and backtested statistical models to generate and evaluate quantitative trading signals.
+- organization: Roblox
+  role: Ph.D. Data Science Intern
+  dates: June - September 2025
+  location: San Mateo, California
+  details:
+    - Analyzed creator engagement and player attributes across 1.5 million users; used dimensionality reduction and hierarchical clustering to identify strategic user cohorts.
+    - Improved cluster-randomized experiments by integrating player and collaboration graphs with more than 20 million edges and training LightGBM models for edge prediction.
+    - Benchmarked METIS, KaHIP, and KaMinPAR graph partitioning algorithms, reducing treatment contamination by 21% and increasing statistical power by 10%.

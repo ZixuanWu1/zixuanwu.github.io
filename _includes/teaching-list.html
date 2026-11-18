@@ -1,0 +1,7 @@
+{% for course in site.data.teaching %}
+<div class="record course">
+  <p class="eyebrow">{{ course.code }}</p>
+  <div class="record-heading"><h3>{{ course.title }}</h3><p class="record-date">{{ course.terms }}</p></div>
+  <p class="muted">{{ course.level }}</p>
+</div>
+{% endfor %}

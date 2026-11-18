@@ -1,0 +1,36 @@
+name: Zixuan Wu
+role: Ph.D. Student in Statistics
+institution: University of Chicago
+department: Department of Statistics
+location: Chicago, Illinois
+email: zixuanwu@uchicago.edu
+scholar: https://scholar.google.com/citations?user=GBNOlFQAAAAJ&hl=en
+github: https://github.com/ZixuanWu1
+updated: November 2026
+interests:
+  - Causal inference
+  - High-dimensional statistics
+  - Statistical learning
+  - Uncertainty quantification
+education:
+  - institution: University of Chicago
+    degree: Ph.D. in Statistics
+    dates: September 2023 - December 2027 (expected)
+    location: Chicago, Illinois
+    gpa: 3.99/4.00
+  - institution: University of Chicago
+    degree: M.S. in Statistics
+    dates: September 2021 - June 2023
+    location: Chicago, Illinois
+    gpa: 3.98/4.00
+  - institution: University of Toronto
+    degree: Honours B.Sc. in Applied Mathematics and Statistics
+    dates: September 2017 - June 2021
+    location: Toronto, Ontario
+    gpa: 4.00/4.00
+service:
+  - Biostatistics
+  - IEEE Transactions on Knowledge and Data Engineering
+  - Public Health Genomics
+  - Experimental Biology and Medicine
+  - ICLR 2026

@@ -1,0 +1,7 @@
+{% for item in site.data.experience %}
+<section class="record">
+  <div class="record-heading"><h3>{{ item.organization }}</h3><p class="record-date">{{ item.dates }}</p></div>
+  <p class="record-role">{{ item.role }} · {{ item.location }}</p>
+  <ul>{% for detail in item.details %}<li>{{ detail }}</li>{% endfor %}</ul>
+</section>
+{% endfor %}

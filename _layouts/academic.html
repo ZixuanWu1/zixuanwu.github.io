@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{% if page.url == '/' %}{{ site.title }} · Statistics{% else %}{{ page.title }} · {{ site.title }}{% endif %}</title>
+  <meta name="description" content="{{ page.description | default: site.description | escape }}">
+  <link rel="canonical" href="{{ page.url | absolute_url }}">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="{{ page.title | escape }} · {{ site.title }}">
+  <meta property="og:description" content="{{ page.description | default: site.description | escape }}">
+  <meta property="og:url" content="{{ page.url | absolute_url }}">
+  <link rel="icon" type="image/svg+xml" href="{{ '/images/zw.svg' | relative_url }}">
+  <link rel="stylesheet" href="{{ '/assets/css/academic.css' | relative_url }}">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="wordmark" href="{{ '/' | relative_url }}">Zixuan Wu<span>Statistics</span></a>
+      <nav aria-label="Main navigation">
+        {% for item in site.data.navigation.main %}
+          <a href="{{ item.url | relative_url }}"{% if page.url == item.url %} aria-current="page"{% endif %}>{{ item.title }}</a>
+        {% endfor %}
+      </nav>
+    </div>
+  </header>
+  <div class="site-grid">
+    <aside class="profile" aria-label="Contact and affiliation">
+      <div class="monogram" aria-hidden="true">ZW<span></span></div>
+      <p class="profile-name">{{ site.data.profile.name }}</p>
+      <p class="profile-role">{{ site.data.profile.role }}</p>
+      <p class="profile-affiliation">{{ site.data.profile.department }}<br>{{ site.data.profile.institution }}</p>
+      <p class="profile-location">{{ site.data.profile.location }}</p>
+      <div class="profile-links">
+        <a href="mailto:{{ site.data.profile.email }}">Email <span aria-hidden="true">↗</span></a>
+        <a href="{{ site.data.profile.scholar | escape }}">Google Scholar <span aria-hidden="true">↗</span></a>
+        <a href="{{ site.data.profile.github }}">GitHub <span aria-hidden="true">↗</span></a>
+        <a href="{{ '/cv/' | relative_url }}">Curriculum vitae <span aria-hidden="true">→</span></a>
+      </div>
+      <p class="profile-note">Causal inference<br>Statistical learning<br>High-dimensional statistics</p>
+    </aside>
+    <main id="main" class="main-content" tabindex="-1">
+      {% if page.eyebrow %}<p class="eyebrow">{{ page.eyebrow }}</p>{% endif %}
+      <h1>{{ page.title }}</h1>
+      {{ content }}
+    </main>
+  </div>
+  <footer class="site-footer">
+    <span>© {{ site.time | date: '%Y' }} Zixuan Wu</span>
+    <span>Updated {{ site.data.profile.updated }} · Built with <a href="https://jekyllrb.com/">Jekyll</a></span>
+  </footer>
+</body>
+</html>

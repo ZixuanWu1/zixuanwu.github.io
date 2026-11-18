@@ -1,0 +1,9 @@
+{% for talk in site.data.talks %}
+<article class="record talk">
+  <p class="publication-meta">{{ talk.year }} <span class="status">{{ talk.type }}</span></p>
+  <h3>{{ talk.title }}</h3>
+  <p>{{ talk.event }}</p>
+  <p class="muted">{{ talk.location }}</p>
+  {% if talk.award %}<p class="award">{{ talk.award }}</p>{% endif %}
+</article>
+{% endfor %}

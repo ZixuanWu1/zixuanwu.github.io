@@ -1,36 +1,18 @@
 ---
-layout: archive
-title: "Publications"
+layout: academic
+title: Publications
 permalink: /publications/
-author_profile: true
+eyebrow: Research
 ---
-
-{% if site.author.googlescholar %}
-  <div class="wordwrap">You can also find my articles on <a href="{{site.author.googlescholar}}">my Google Scholar profile</a>.</div>
-{% endif %}
-
-{% include base_path %}
-
-<!-- New style rendering if publication categories are defined -->
-{% if site.publication_category %}
-  {% for category in site.publication_category  %}
-    {% assign title_shown = false %}
-    {% for post in site.publications reversed %}
-      {% if post.category != category[0] %}
-        {% continue %}
-      {% endif %}
-      {% unless title_shown %}
-        <h2>{{ category[1].title }}</h2><hr />
-        {% assign title_shown = true %}
-      {% endunless %}
-      {% include archive-single.html %}
-    {% endfor %}
-  {% endfor %}
-{% else %}
-  {% for post in site.publications reversed %}
-    {% include archive-single.html %}
-  {% endfor %}
-{% endif %}
-
-
-
+<p class="page-intro">My work spans causal inference, high-dimensional statistics, uncertainty quantification, and Markov chain Monte Carlo. A citation index is available on <a href="{{ site.data.profile.scholar | escape }}">Google Scholar</a>.</p>
+<nav class="section-nav" aria-label="Publication categories"><a href="#published">Published articles</a><a href="#preprints">Preprints</a><a href="#in-preparation">In preparation</a></nav>
+<h2 id="published">Published articles</h2>
+{% assign published = site.data.publications | where: 'status', 'published' %}
+{% for paper in published %}{% include publication-entry.html paper=paper %}{% endfor %}
+<h2 id="preprints">Preprints</h2>
+<p class="publication-notes">* Equal contribution. Years refer to the first preprint posting.</p>
+{% assign preprints = site.data.publications | where: 'status', 'preprint' %}
+{% for paper in preprints %}{% include publication-entry.html paper=paper %}{% endfor %}
+<h2 id="in-preparation">Manuscripts in preparation</h2>
+{% assign preparation = site.data.publications | where: 'status', 'preparation' %}
+{% for paper in preparation %}{% include publication-entry.html paper=paper %}{% endfor %}
