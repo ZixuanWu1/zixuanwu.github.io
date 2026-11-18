@@ -4,7 +4,7 @@ A Jekyll academic website using the original Academic Pages default theme, layou
 
 ## Edit content
 
-- `_pages/about.md`: biography and recent highlights.
+- `_pages/about.md`: biography and recent publications.
 - `_data/profile.yml`: contact information, education, research interests, and service.
 - `_data/publications.yml`: the shared bibliography used on the homepage and publications page.
 - `_data/experience.yml`, `_data/teaching.yml`, `_data/talks.yml`: professional and academic activities.

@@ -8,15 +8,17 @@ redirect_from:
   - /about.html
 ---
 
-I am a Ph.D. student in the [Department of Statistics at the University of Chicago](https://stat.uchicago.edu/). My research focuses on **causal inference, high-dimensional statistics, and statistical learning**, with an emphasis on methods that combine statistical guarantees with computational efficiency.
+I am a Ph.D. student in the [Department of Statistics at the University of Chicago](https://stat.uchicago.edu/). I am fortunate to work with Professors Jingshu Wang and Claire Donnat.
 
-I work on Mendelian randomization and causal mediation, sparse canonical correlation analysis, and conformal prediction. My recent work also studies synthetic data augmentation and statistical guarantees for link prediction with neural network representations.
+One line of my research focuses on causal inference, particularly methods for Mendelian randomization, which uses genetic variants as instrumental variables to estimate causal effects.
 
-Before my Ph.D., I earned an M.S. in Statistics from the University of Chicago and an Honours B.Sc. in Applied Mathematics and Statistics from the University of Toronto. I have also worked on quantitative research at **Optiver** and large-scale experimentation at **Roblox**.
+Another line of my research lies at the intersection of statistics and machine learning, ranging from developing statistical methods for high-dimensional data to understanding the performance of machine learning models.
+
+Before beginning my Ph.D., I earned an Honours B.Sc. in Applied Mathematics from the University of Toronto, where I had the opportunity to work with Professor Jeffrey Rosenthal on MCMC convergence and inference. I have also worked on quantitative research at **Optiver** and large-scale experimentation at **Roblox**.
 
 **Research interests:** {{ site.data.profile.interests | join: '; ' }}.
 
-## Selected research
+## Recent publications
 
 [All publications]({{ '/publications/' | relative_url }})
 
@@ -24,15 +26,5 @@ Before my Ph.D., I earned an M.S. in Statistics from the University of Chicago a
 {% for paper in selected %}
 {% include publication-entry.html paper=paper summary=true %}
 {% endfor %}
-
-*\* Equal contribution.*
-
-## Recent highlights
-
-- **2026:** Received a Poster Award Honorable Mention at the Statistical Learning and Data Science Conference for work on link prediction with neural network latent representations.
-- **Summer 2026:** Joined Optiver in Austin as a Quantitative Research Intern, working on statistical models for systematic trading.
-- **Summer 2025:** Worked with the Creator team at Roblox on user segmentation and graph-based experimental design.
-
-[Talks and posters]({{ '/talks/' | relative_url }})
 
 For research correspondence, reach me at [{{ site.data.profile.email }}](mailto:{{ site.data.profile.email }}).

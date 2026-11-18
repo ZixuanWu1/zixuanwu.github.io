@@ -11,6 +11,8 @@
   links:
     - label: Paper
       url: https://arxiv.org/abs/2507.11160
+    - label: Code
+      url: https://cran.r-project.org/web/packages/ccar3/index.html
 - id: speedcp
   title: 'SpeedCP: Fast Kernel-based Conditional Conformal Prediction'
   authors: 'Y. Liu, Y. Jung, <strong>Zixuan Wu</strong>, S. Jeong, and C. Donnat'
@@ -35,6 +37,8 @@
   links:
     - label: Paper
       url: https://www.nature.com/articles/s41467-025-61648-7
+    - label: Code
+      url: https://github.com/ZixuanWu1/FLOW-MR
 - id: attractive-repulsive
   title: Convergence Rates of Attractive-Repulsive MCMC Algorithms
   authors: 'Y. H. Jiang, T. Liu, Z. Lou, J. S. Rosenthal, S. Shangguan, F. Wang, and <strong>Zixuan Wu</strong>'
@@ -82,7 +86,6 @@
   status: preprint
   equal: true
   venue: arXiv
-  selected: true
   summary: Conformal filtering of synthetic data to improve data augmentation while controlling the risk introduced by low-quality generated samples.
   links:
     - label: Preprint
