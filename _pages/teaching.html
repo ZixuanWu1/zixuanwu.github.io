@@ -6,6 +6,19 @@ permalink: /teaching/
 <p>Teaching assistant in the Department of Statistics at the University of Chicago, supporting master's and doctoral courses.</p>
 <h2>Teaching assistantships</h2>
 {% include teaching-list.html %}
+<h2 id="mentoring" style="scroll-margin-top: 5rem;">Mentoring</h2>
+<h3>Pupu</h3>
+<p>I co-mentor Pupu, a domestic longhair cat who is very committed to keeping me productive. Whenever I take a break, Pupu offers a vocal reminder that it’s time to get back to work.</p>
+{% assign pupu_photo = site.static_files | where: 'path', '/images/pupu.jpg' | first %}
+<figure style="max-width: 360px;">
+  {% if pupu_photo %}
+  <img src="{{ pupu_photo.path | relative_url }}" alt="Pupu, a domestic longhair cat" loading="lazy">
+  {% else %}
+  <div role="img" aria-label="Placeholder for a photo of Pupu" style="width: 100%; aspect-ratio: 4 / 3; display: flex; align-items: center; justify-content: center; padding: 1rem; text-align: center; border: 1px dashed var(--global-text-color-light); border-radius: 4px;">
+    Pupu’s photo coming soon
+  </div>
+  {% endif %}
+</figure>
 <h2>Peer review</h2>
 <p>I have served as a reviewer for the following journals and conference:</p>
 <ul>{% for venue in site.data.profile.service %}<li>{{ venue }}</li>{% endfor %}</ul>
