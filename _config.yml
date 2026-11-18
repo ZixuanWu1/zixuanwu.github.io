@@ -1,6 +1,7 @@
 # Personal academic site. GitHub project Pages URL follows the repository owner.
 locale: en-US
 title: Zixuan Wu
+title_separator: "-"
 name: Zixuan Wu
 description: Zixuan Wu is a Ph.D. student in Statistics at the University of Chicago, working on causal inference, high-dimensional statistics, statistical learning, and uncertainty quantification.
 url: https://zixuanwu1.github.io
@@ -11,6 +12,7 @@ site_theme: default
 
 # Retain compatibility with the Academic Pages templates and utilities.
 author:
+  avatar: profile.png
   name: Zixuan Wu
   bio: Ph.D. Student in Statistics
   location: Chicago, Illinois
@@ -75,7 +77,8 @@ defaults:
       path: ''
       type: pages
     values:
-      layout: academic
+      layout: single
+      author_profile: true
 
 markdown: kramdown
 highlighter: rouge

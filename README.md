@@ -1,6 +1,6 @@
 # Zixuan Wu's academic website
 
-A Jekyll academic website based on Academic Pages. The public pages use a custom, responsive layout with no client-side framework or third-party scripts.
+A Jekyll academic website using the original Academic Pages default theme, layouts, sidebar, navigation, and light/dark theme toggle.
 
 ## Edit content
 
@@ -9,11 +9,12 @@ A Jekyll academic website based on Academic Pages. The public pages use a custom
 - `_data/publications.yml`: the shared bibliography used on the homepage and publications page.
 - `_data/experience.yml`, `_data/teaching.yml`, `_data/talks.yml`: professional and academic activities.
 - `_data/navigation.yml`: main navigation.
-- `_layouts/academic.html` and `assets/css/academic.css`: layout and visual styles.
+- `_config.yml`: site identity and sidebar information in `author`.
+- `_layouts/single.html`, `_layouts/archive.html`, and `assets/css/main.scss`: the original Academic Pages layouts and theme styles.
 
 For a publication, use `status: published`, `preprint`, or `preparation`. Set `selected: true` and add a short `summary` to feature it on the homepage. Keep author order consistent with the current paper. `links` can contain paper, code, and other verified resources.
 
-The sidebar uses a typographic monogram until a personal photograph is supplied. Template posts, sample publications, sample PDFs, and unused demo pages are excluded from the build.
+The sidebar uses the template's neutral placeholder avatar until a personal photograph is supplied. Personal content is kept in the page and data files, and rendered with the template's native typography and publication-list styles. Template posts, sample publications, sample PDFs, and unused demo pages are excluded from the build. The CV page and its navigation links remain removed.
 
 ## Preview and build
 
@@ -47,7 +48,7 @@ url: https://zixuanwu1.github.io
 baseurl: /zixuanwu.github.io
 ```
 
-GitHub's repository API reported Pages as disabled on November 18, 2026. To publish, push the reviewed changes and enable **Settings → Pages → Deploy from a branch**, selecting the branch containing these changes and `/ (root)`. The resulting default address is `https://zixuanwu1.github.io/zixuanwu.github.io/`.
+GitHub Pages is enabled using **Deploy from a branch**, with `master` and `/ (root)` selected. Push changes to `master` to update `https://zixuanwu1.github.io/zixuanwu.github.io/`.
 
 If the repository is renamed to `ZixuanWu1.github.io`, set `baseurl: ''`. For a custom domain, update `url` and `baseurl` to match. Internal links and legacy redirects use Jekyll's URL filters to respect that configuration.
 

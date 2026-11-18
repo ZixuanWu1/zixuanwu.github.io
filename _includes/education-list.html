@@ -1,7 +1,8 @@
 {% for item in site.data.profile.education %}
-<div class="record">
-  <div class="record-heading"><h3>{{ item.institution }}</h3><p class="record-date">{{ item.dates }}</p></div>
+<section>
+  <h3>{{ item.institution }}</h3>
+  <p class="page__meta">{{ item.dates }}</p>
   <p>{{ item.degree }}</p>
-  {% if include.gpa %}<p class="muted">{{ item.location }} · GPA {{ item.gpa }}</p>{% endif %}
-</div>
+  {% if include.gpa %}<p>{{ item.location }} · GPA {{ item.gpa }}</p>{% endif %}
+</section>
 {% endfor %}
