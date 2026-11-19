@@ -14,9 +14,9 @@ Before beginning my Ph.D., I earned an Honours B.Sc. in Applied Mathematics from
 
 ## Recent news
 
-- **Summer 2026:** Completed a quantitative research internship at **Optiver**.
-- **ASHG 2026:** Presented a poster on family-based GWAS in Montreal.
-- **SLDS 2026:** Presented a poster on neural network-based link prediction in Brooklyn.
+- **November 2026:** Presented a poster on neural network-based link prediction at **SLDS** in Brooklyn.
+- **October 2026:** Presented a poster on family-based GWAS at **ASHG** in Montreal.
+- **August 2026:** Completed a quantitative research internship at **Optiver**.
 
 ## Recent publications
 
