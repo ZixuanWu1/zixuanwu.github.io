@@ -7,7 +7,9 @@ const vm = require("node:vm");
 const source = fs.readFileSync(path.join(__dirname, "../assets/js/pupu-likes.js"), "utf8");
 const key = "zixuanwu1_github_io_pupu_likes_v1";
 const storageKey = `pupu-liked:${key}`;
-const settle = () => new Promise(resolve => setImmediate(resolve));
+const settle = async () => {
+  for (let i = 0; i < 10; i++) await new Promise(resolve => setImmediate(resolve));
+};
 const response = (value, status = 200) => ({
   ok: status >= 200 && status < 300,
   status,
@@ -17,9 +19,9 @@ const response = (value, status = 200) => ({
 async function mount({ fetchImpl, storage = new Map(), hostname = "zixuanwu1.github.io", blockedStorage = false }) {
   const calls = [];
   const elements = {};
-  for (const selector of ["button", ".pupu-likes__label", ".pupu-likes__heart", ".pupu-likes__count", ".pupu-likes__status"]) {
+  for (const selector of [".pupu-likes__button", ".pupu-likes__label", ".pupu-likes__heart", ".pupu-likes__count", ".pupu-likes__status", ".pupu-likes__retry"]) {
     elements[selector] = {
-      textContent: "", attributes: {}, handlers: {}, disabled: true,
+      textContent: "", attributes: {}, handlers: {}, disabled: true, hidden: true,
       setAttribute(name, value) { this.attributes[name] = value; },
       addEventListener(name, handler) { this.handlers[name] = handler; }
     };
@@ -31,17 +33,23 @@ async function mount({ fetchImpl, storage = new Map(), hostname = "zixuanwu1.git
   };
   vm.runInNewContext(source, {
     document: { getElementById: () => ({ dataset: { counterKey: key }, querySelector: selector => elements[selector] }) },
-    window: { location: { hostname }, localStorage, setTimeout, clearTimeout, addEventListener: (name, fn) => { events[name] = fn; } },
+    window: {
+      location: { hostname }, localStorage,
+      setTimeout: (fn, ms) => ms < 10000 ? setImmediate(fn) : setTimeout(fn, ms),
+      clearTimeout,
+      addEventListener: (name, fn) => { events[name] = fn; }
+    },
     AbortController,
     fetch: async (url, options) => { calls.push({ url, options }); return fetchImpl(url); }
   });
   await settle();
   return {
     calls, storage, events,
-    button: elements.button,
+    button: elements[".pupu-likes__button"],
+    retry: elements[".pupu-likes__retry"],
     count: elements[".pupu-likes__count"],
     status: elements[".pupu-likes__status"],
-    click: () => elements.button.handlers.click()
+    click: () => elements[".pupu-likes__button"].handlers.click()
   };
 }
 
@@ -74,13 +82,16 @@ test("failed writes do not change the total or record a successful like", async 
   assert.equal(app.storage.has(storageKey), false);
   assert.equal(app.button.disabled, false);
   assert.match(app.status.textContent, /couldn’t confirm/);
+  assert.equal(app.calls.filter(call => call.url.includes("/hit/")).length, 1);
 });
 
 test("failed reads and invalid values never masquerade as a zero count", async () => {
   for (const result of [response(null, 503), response(null), response(-3), response("NaN")]) {
     const app = await mount({ fetchImpl: () => result });
-    assert.equal(app.count.textContent, "Likes unavailable");
+    assert.equal(app.count.textContent, "Count temporarily unavailable");
     assert.equal(app.button.disabled, false);
+    assert.equal(app.retry.hidden, false);
+    assert.equal(app.calls.length, 3);
   }
 });
 
@@ -116,4 +127,62 @@ test("a successful like in another tab updates this tab without an extra write",
   await app.click();
   assert.equal(app.button.disabled, true);
   assert.ok(app.calls.every(call => call.url.includes("/get/")));
+});
+
+test("a transient read failure recovers automatically without incrementing the counter", async () => {
+  let reads = 0;
+  const app = await mount({ fetchImpl: () => ++reads === 1 ? response(null, 503) : response(9) });
+  assert.equal(app.count.textContent, "9 likes");
+  assert.equal(app.retry.hidden, true);
+  assert.equal(app.calls.length, 2);
+  assert.ok(app.calls.every(call => call.url.includes("/get/")));
+});
+
+test("an unavailable service shows the last confirmed total with an explicit stale label", async () => {
+  const storage = new Map([[`pupu-total:${key}`, "7"]]);
+  let available = false;
+  const app = await mount({ storage, fetchImpl: () => response(available ? 9 : null, available ? 200 : 503) });
+  assert.equal(app.count.textContent, "7 likes (last saved)");
+  assert.equal(app.retry.hidden, false);
+  available = true;
+  await app.retry.handlers.click();
+  assert.equal(app.count.textContent, "9 likes");
+  assert.equal(storage.get(`pupu-total:${key}`), "9");
+  assert.equal(app.retry.hidden, true);
+});
+
+test("reconnecting reloads the total without adding a like", async () => {
+  let available = false;
+  const app = await mount({ fetchImpl: () => response(available ? 5 : null, available ? 200 : 503) });
+  available = true;
+  await app.events.online();
+  assert.equal(app.count.textContent, "5 likes");
+  assert.ok(app.calls.every(call => call.url.includes("/get/")));
+});
+
+test("an old read cannot overwrite a newer successful like", async () => {
+  let finishRead;
+  let reads = 0;
+  const app = await mount({ fetchImpl: url => {
+    if (url.includes("/hit/")) return response(8);
+    if (++reads === 1) return response(7);
+    return new Promise(resolve => { finishRead = resolve; });
+  } });
+  const refresh = app.retry.handlers.click();
+  await app.click();
+  finishRead(response(7));
+  await refresh;
+  assert.equal(app.count.textContent, "8 likes");
+});
+
+test("slow count loading does not block a visitor from liking Pupu", async () => {
+  let finishRead;
+  const app = await mount({ fetchImpl: url => url.includes("/hit/")
+    ? response(4)
+    : new Promise(resolve => { finishRead = resolve; }) });
+  assert.equal(app.button.disabled, false);
+  await app.click();
+  finishRead(response(3));
+  await settle();
+  assert.equal(app.count.textContent, "4 likes");
 });
