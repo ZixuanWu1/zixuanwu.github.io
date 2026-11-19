@@ -15,7 +15,17 @@ A Jekyll academic website using the original Academic Pages default theme, layou
 
 For a publication, use `status: published`, `preprint`, or `preparation`. Only published articles and preprints are displayed on the publications page. Set `selected: true` and add a short `summary` to feature it on the homepage. Keep author order consistent with the current paper. `links` can contain paper, code, and other verified resources.
 
-The sidebar uses the template's neutral placeholder avatar until a personal photograph is supplied. Personal content is kept in the page and data files, and rendered with the template's native typography and publication-list styles. Template posts, sample publications, sample PDFs, and unused demo pages are excluded from the build. The CV and Experience pages and their navigation links remain removed.
+The sidebar uses `images/zixuan.jpg` in a 175px circular frame. Personal content is kept in the page and data files, and rendered with the template's native typography and publication-list styles. Template posts, sample publications, sample PDFs, and unused demo pages are excluded from the build. The CV and Experience pages and their navigation links remain removed.
+
+## Pupu's likes
+
+The Mentoring section uses `images/pupu.jpg` and a small like button implemented in `assets/js/pupu-likes.js`. Counts are shared across visitors through [Count API](https://countapi.mileshilliard.com/), using the public key `zixuanwu1_github_io_pupu_likes_v1`. Reads do not increment the count; the first successful like creates the counter. No API key or visitor account is required, and no third-party JavaScript is loaded.
+
+The browser remembers a successful like in local storage to discourage repeated clicks. This is a casual counter, not a verified count of unique people: clearing storage, using another browser, or directly calling the public API can change the total. The external service has no uptime guarantee. Failed requests display an unavailable or retry message rather than inventing a count.
+
+Local previews on localhost or 127.0.0.1 automatically use a separate `_preview` counter, so testing never adds to the live total. Keep the production key unchanged when updating or moving the website to preserve the total. Requests omit cookies and the page referrer.
+
+Run `node --test scripts/test-pupu-likes.cjs` to check persistence, repeat-click protection, preview isolation, and failure handling without calling the external service.
 
 ## Preview and build
 

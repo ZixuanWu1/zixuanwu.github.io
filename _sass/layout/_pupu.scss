@@ -1,0 +1,68 @@
+.pupu-photo {
+  max-width: 360px;
+  margin: 1rem 0;
+
+  figcaption {
+    margin: 0.5rem 0 0;
+    font-size: 0.875rem;
+  }
+}
+
+.pupu-likes {
+  margin: 1rem 0 2rem;
+
+  &__actions {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+  }
+
+  &__button {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    min-height: 44px;
+    margin: 0;
+    font-size: 1rem;
+    color: var(--global-text-color) !important;
+
+    &:not(:disabled):hover {
+      color: #fff !important;
+    }
+
+    &:focus-visible {
+      outline: 2px solid var(--global-link-color);
+      outline-offset: 3px;
+    }
+
+    &:disabled {
+      cursor: default;
+    }
+
+    &:disabled:hover {
+      color: var(--global-text-color) !important;
+      background-color: var(--global-bg-color);
+      border-color: var(--global-border-color);
+    }
+  }
+
+  &__heart {
+    font-size: 1.25em;
+    line-height: 1;
+  }
+
+  &__count {
+    font-size: 1rem;
+    font-variant-numeric: tabular-nums;
+  }
+
+  &__status {
+    margin: 0.5rem 0 0;
+    font-size: 0.875rem;
+
+    &:empty {
+      display: none;
+    }
+  }
+}

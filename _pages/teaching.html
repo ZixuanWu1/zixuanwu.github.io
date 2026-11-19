@@ -10,15 +10,28 @@ permalink: /teaching/
 <h3>Pupu</h3>
 <p>I co-mentor Pupu, an American longhair cat from Wisconsin whom my partner left with me to keep me in line. Whenever I take a break, Pupu offers a vocal reminder that it’s time to get back to work.</p>
 {% assign pupu_photo = site.static_files | where: 'path', '/images/pupu.jpg' | first %}
-<figure style="max-width: 360px;">
+<figure class="pupu-photo">
   {% if pupu_photo %}
-  <img src="{{ pupu_photo.path | relative_url }}" alt="Pupu, an American longhair cat from Wisconsin" loading="lazy">
+  <img src="{{ pupu_photo.path | relative_url }}" alt="Pupu keeping watch beside my laptop while I study" width="1410" height="1276" loading="lazy">
+  <figcaption>Pupu, making sure I stay on task.</figcaption>
   {% else %}
   <div role="img" aria-label="Placeholder for a photo of Pupu" style="width: 100%; aspect-ratio: 4 / 3; display: flex; align-items: center; justify-content: center; padding: 1rem; text-align: center; border: 1px dashed var(--global-text-color-light); border-radius: 4px;">
     Pupu’s photo coming soon
   </div>
   {% endif %}
 </figure>
+<div class="pupu-likes" id="pupu-likes" data-counter-key="zixuanwu1_github_io_pupu_likes_v1">
+  <div class="pupu-likes__actions">
+    <button class="btn btn--inverse pupu-likes__button" type="button" aria-pressed="false" disabled>
+      <span class="pupu-likes__heart" aria-hidden="true">♡</span>
+      <span class="pupu-likes__label">Like Pupu</span>
+    </button>
+    <span class="pupu-likes__count" aria-live="polite" aria-atomic="true">Loading likes…</span>
+  </div>
+  <p class="pupu-likes__status" role="status"></p>
+</div>
+<noscript><p>Enable JavaScript to like Pupu and see the total.</p></noscript>
+<script src="{{ '/assets/js/pupu-likes.js' | relative_url }}?v={{ site.time | date: '%s' }}" defer></script>
 <h2>Peer review</h2>
 <p>I have served as a reviewer for the following journals and conference:</p>
 <ul>{% for venue in site.data.profile.service %}<li>{{ venue }}</li>{% endfor %}</ul>
